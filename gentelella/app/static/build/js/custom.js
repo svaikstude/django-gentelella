@@ -145,7 +145,7 @@ function init_sidebar() {
 // /Sidebar
 
 var randNum = function() {
-    return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
+    return (Math.floor(Math.random() * 20));
 };
 
 // Panel toolbox
@@ -400,9 +400,9 @@ function init_flot_chart() {
         [16, 9]
     ];
 
-    for (var i = 0; i < 30; i++) {
+    for (var i = 0; i < 35; i++) {
         chart_plot_02_data.push([
-            new Date(Date.today().add(i).days()).getTime(), randNum() + i + i + 10
+            new Date(Date.today().add(-i).days()).getTime(), randNum()+ 10
         ]);
     }
 
@@ -496,7 +496,7 @@ function init_flot_chart() {
         tooltip: true,
         tooltipOpts: {
             content: "%s: %y.0",
-            xDateFormat: "%d/%m",
+            xDateFormat: "%m-%d",
             shifts: {
                 x: -30,
                 y: -50
@@ -504,14 +504,15 @@ function init_flot_chart() {
             defaultTheme: false
         },
         yaxis: {
-            min: 0
+            min: 0,
+            max: 50
         },
         xaxis: {
             mode: "time",
             minTickSize: [1, "day"],
-            timeformat: "%d/%m/%y",
-            min: chart_plot_02_data[0][0],
-            max: chart_plot_02_data[20][0]
+            timeformat: "%Y-%m-%d",
+            min: chart_plot_02_data[29][0],
+            max: chart_plot_02_data[0][0]
         }
     };
 
@@ -555,7 +556,7 @@ function init_flot_chart() {
         console.log('Plot2');
 
         $.plot($("#chart_plot_02"), [{
-            label: "Email Sent",
+            label: "Emails Received",
             data: chart_plot_02_data,
             lines: {
                 fillColor: "rgba(150, 202, 89, 0.12)"
