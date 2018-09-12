@@ -49,6 +49,20 @@
       </div>
     </div>
 
+    <br />
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="x_panel">
+          <div class="x_content">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div id="echart_line2" style="height:350px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     
 
   </div>
@@ -57,8 +71,6 @@
 
 {% block javascripts %}
   {{ block.super}}
-  <!-- Chart.js -->
-  <script src="/static/vendors/Chart.js/dist/Chart.min.js"></script>
   <!-- Flot -->
   <script src="/static/vendors/Flot/jquery.flot.js"></script>
   <script src="/static/vendors/Flot/jquery.flot.pie.js"></script>
@@ -71,5 +83,8 @@
   <script src="/static/vendors/flot.curvedlines/curvedLines.js"></script>
   <!-- DateJS -->
   <script src="/static/vendors/DateJS/build/date.js"></script>
+  <!-- ECharts -->
+  <script src="/static/vendors/echarts/dist/echarts.min.js"></script>
+  <script src="/static/vendors/echarts/map/js/world.js"></script>
   
 {% endblock javascripts %}

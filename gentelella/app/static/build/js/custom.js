@@ -3448,6 +3448,58 @@ function init_echarts() {
 
     }
 
+    //echart Line2
+
+    if ($('#echart_line2').length) {
+
+        var yData = [];
+        var xData = [];
+
+        for (var i = 29; i >= 0; i--) {
+            xData.push(new Date(Date.today().add(-i).days()).toDateString());
+            yData.push(randNum()+ 10);
+        }
+        var echartLine = echarts.init(document.getElementById('echart_line2'), theme);
+
+        echartLine.setOption({
+            title: {
+                text: 'Emails Received',
+                subtext: '30 days moving average'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                x: 220,
+                y: 40,
+                data: ['Emails']
+            },
+            calculable: true,
+            xAxis: [{
+                type: 'category',
+                boundaryGap: false,
+                data: xData
+            }],
+            yAxis: [{
+                type: 'value'
+            }],
+            series: [{
+                name: 'Emails',
+                type: 'line',
+                smooth: false,
+                // itemStyle: {
+                //     normal: {
+                //         areaStyle: {
+                //             type: 'default'
+                //         }
+                //     }
+                // },
+                data: yData
+            }]
+        });
+
+    }
+
     //echart Scatter
 
     if ($('#echart_scatter').length) {
